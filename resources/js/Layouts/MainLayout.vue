@@ -4,31 +4,31 @@ import { Link ,usePage } from '@inertiajs/vue3'
 
 const page = usePage()
 const flashSuccess = computed(() => page.props.flash.success)
-// import {ref} from 'vue'
-
-// const timer = ref(0)
-// setInterval(() => timer.value++, 1000)
 </script>
 <template>
-    <div>
-      <header>
-        <nav>
-          <!-- Navigation Links -->
-          <Link href="/listing">All listings</Link>
-          <Link href="/listing/create">Create a listing</Link>
-          <div v-if="flashSuccess" class="success">
+      <header class="border-b border-gray-200 dark:border-gray-700 dark:bg-gray-700 bg-white w-full">
+      <div class="container mx-auto">
+        <nav class="p-4 flex items-center justify-between">
+          <div class="text-lg font-medium"><Link href="/listing">All listings</Link></div>
+          <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
+            <Link href="/">LaraHouse</Link>
+          </div>
+          <div class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md">
+            <Link href="/listing/create">+ New Listing</Link>
+          </div>
+          
+        </nav>
+      </div>
+      </header>
+      <main class="container mx-auto p-4">
+        <div v-if="flashSuccess" class="mb-4 border rounded-md shadow-sm border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900 p-2">
             {{ flashSuccess }}
           </div>
-          <!-- <div>The page with time {{ timer }}</div> -->
-        </nav>
-      </header>
-      <main>
         <slot></slot>
       </main>
       <footer>
         <p>© 2024 Your Company</p>
       </footer>
-    </div>
   </template>
 
   
@@ -37,30 +37,4 @@ const flashSuccess = computed(() => page.props.flash.success)
     name: 'MainLayout'
   }
   </script>
-  
-  <style scoped>
-
-  header {
-    background: #333;
-    color: white;
-    padding: 1rem;
-  }
-  nav a {
-    color: white;
-    margin-right: 1rem;
-  }
-  footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  .success {
-    background-color: green;
-    color: white;
-  }
-  </style>
   

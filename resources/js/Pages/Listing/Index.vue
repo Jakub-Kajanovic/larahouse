@@ -3,7 +3,7 @@
         <Box v-for="listing in listings" :key="listing.id">
         <div>
         <Link :href="`/listing/${listing.id}`">
-            <Price :price="listing.price" class="text-xl"/>
+            <Price :price="listing.price" class="text-xl font-bold"/>
             <ListingSpace :listing="listing" class="text-lg"/>
             <ListingAdress :listing="listing" class="text-gray-400"/>
         </Link>
